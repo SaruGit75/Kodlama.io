@@ -6,7 +6,7 @@ using Kodlama.io.Devs.Application.Services.Repositories;
 using Kodlama.io.Devs.Domain.Entities;
 using MediatR;
 
-namespace Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Queries;
+namespace Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Queries.GetListProgrammingLanguage;
 
 public class GetListProgrammingLanguageQuery : IRequest<ProgrammingLanguageListModel>
 {

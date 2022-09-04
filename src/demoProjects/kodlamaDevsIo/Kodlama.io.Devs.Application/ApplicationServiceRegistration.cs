@@ -3,6 +3,7 @@ using System.Reflection;
 using FluentValidation;
 using MediatR;
 using Core.Application.Pipelines.Validation;
+using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Rules;
 
 namespace Kodlama.io.Devs.Application;
 
@@ -13,7 +14,7 @@ public static class ApplicationServiceRegister
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
         services.AddMediatR(Assembly.GetExecutingAssembly());
 
-        //services.AddScoped<BrandBusinessRules>();
+        services.AddScoped<ProgrammingLanguageBusinessRules>();
 
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
         //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(AuthorizationBehavior<,>));
