@@ -1,5 +1,9 @@
-﻿using Core.Application.Requests;
+﻿using System.Net;
+using Core.Application.Requests;
 using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Commands.CreateProgrammingLanguage;
+using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Commands.HardDeleteProgrammingLanguage;
+using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Commands.SoftDeleteProgrammingLanguage;
+using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Commands.UpdateProgrammingLanguage;
 using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Dtos;
 using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Models;
 using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Queries.GetByIdProgrammingLanguage;
@@ -36,6 +40,41 @@ namespace Kodlama.io.Devs.WebAPI.Controllers
         {
             ProgrammingLanguageGetByIdDto getByIdDto = await Mediator.Send(languageQuery);
             return Ok(getByIdDto);
+        }
+
+        [HttpPost("UpdateItem/{Id}")]
+        public async Task<IActionResult> UpdateItem([FromRoute] int Id, [FromBody] string langName)
+        {
+            UpdateProgrammingLanguageCommand updateProgrammingLanguageCommand = new()
+            {
+                Id = Id,
+                Name = langName
+            };
+            UpdatedProgrammingLanguageDto programmingLanguageDto = await Mediator.Send(updateProgrammingLanguageCommand);
+            return Ok(programmingLanguageDto);
+        }
+
+        [HttpPost("{Id}")]
+        public async Task<IActionResult> SoftDelete([FromRoute] int Id)
+        {
+            SoftDeleteProgrammingLanguageCommand softDeletedEntity = new()
+            {
+                Id = Id
+            };
+
+            SoftDeleteProgrammingLanguageDto languageDto = await Mediator.Send(softDeletedEntity);
+            return StatusCode((int)HttpStatusCode.NoContent);
+        }
+
+        [HttpDelete("{Id}")]
+        public async Task<IActionResult> HardDelete([FromRoute] int Id)
+        {
+            HardDeleteProgrammingLanguageCommand hardDeleteEntity = new()
+            {
+                Id = Id
+            };
+            HardDeleteProgrammingLanguageDto languageDto = await Mediator.Send(hardDeleteEntity);
+            return StatusCode((int)HttpStatusCode.NoContent);
         }
     }
 }

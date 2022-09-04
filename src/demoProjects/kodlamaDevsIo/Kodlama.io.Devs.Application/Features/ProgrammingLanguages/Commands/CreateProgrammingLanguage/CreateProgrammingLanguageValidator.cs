@@ -7,6 +7,6 @@ public class CreateProgrammingLanguageValidator : AbstractValidator<CreateProgra
     public CreateProgrammingLanguageValidator()
     {
         RuleFor(t => t.Name).NotEmpty();
-        RuleFor(t => t.Name).MinimumLength(2);
+        RuleFor(t => t.Name).MinimumLength(1);
     }
 }

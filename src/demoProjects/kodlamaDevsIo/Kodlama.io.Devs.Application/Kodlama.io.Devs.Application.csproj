@@ -7,8 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Features\ProgrammingLanguages\Commands\HardDeleteProgrammingLanguage\" />
+    <Folder Include="Features\ProgrammingLanguages\Commands\SoftDeleteProgrammingLanguage\" />
+    <Folder Include="Features\ProgrammingLanguages\Commands\UpdateProgrammingLanguage\" />
     <Folder Include="Features\ProgrammingLanguages\Constants\" />
-    <Folder Include="Features\ProgrammingLanguages\Dtos\" />
     <Folder Include="Features\ProgrammingLanguages\Models\" />
     <Folder Include="Features\ProgrammingLanguages\Queries\GetByIdProgrammingLanguage\" />
     <Folder Include="Features\ProgrammingLanguages\Rules\" />

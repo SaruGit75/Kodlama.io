@@ -27,7 +27,7 @@ public class GetListProgrammingLanguageQuery : IRequest<ProgrammingLanguageListM
         public async Task<ProgrammingLanguageListModel> Handle(GetListProgrammingLanguageQuery request, CancellationToken cancellationToken)
         {
             IPaginate<ProgrammingLanguage> languages = await _repository.GetListAsync(index: request.PageRequest.Page,
-                size: request.PageRequest.PageSize);
+                size: request.PageRequest.PageSize, predicate: t => !t.IsDeleted);
 
             ProgrammingLanguageListModel mappedLanguageListModel = _mapper.Map<ProgrammingLanguageListModel>(languages);
             return mappedLanguageListModel;
