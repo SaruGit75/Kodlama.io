@@ -7,6 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Features\Authentication\Commands\Register\" />
+    <Folder Include="Features\Authentication\Commands\Login\" />
+    <Folder Include="Features\Authentication\Rules\" />
+    <Folder Include="Features\Authentication\Profiles\" />
+    <Folder Include="Features\GithubProfiles\Commands\HardDeleteGithubProfile\" />
+    <Folder Include="Features\GithubProfiles\Constants\" />
+    <Folder Include="Features\GithubProfiles\Models\" />
+    <Folder Include="Features\GithubProfiles\Queries\GetListGithubProfile\" />
+    <Folder Include="Features\GithubProfiles\Queries\GetByIdGithubProfile\" />
     <Folder Include="Features\ProgrammingLanguages\Commands\HardDeleteProgrammingLanguage\" />
     <Folder Include="Features\ProgrammingLanguages\Commands\SoftDeleteProgrammingLanguage\" />
     <Folder Include="Features\ProgrammingLanguages\Commands\UpdateProgrammingLanguage\" />
@@ -15,6 +24,15 @@
     <Folder Include="Features\ProgrammingLanguages\Queries\GetByIdProgrammingLanguage\" />
     <Folder Include="Features\ProgrammingLanguages\Rules\" />
     <Folder Include="Features\ProgrammingLanguages\Profiles\" />
+    <Folder Include="Features\ProgrammingTechnologies\Commands\CreateProgrammingTechnology\" />
+    <Folder Include="Features\ProgrammingTechnologies\Commands\UpdateProgrammingTechnologies\" />
+    <Folder Include="Features\ProgrammingTechnologies\Commands\SoftDeleteProgrammingTechnologies\" />
+    <Folder Include="Features\ProgrammingTechnologies\Models\" />
+    <Folder Include="Features\ProgrammingTechnologies\Profiles\" />
+    <Folder Include="Features\ProgrammingTechnologies\Queries\GetListProgrammingTechnology\" />
+    <Folder Include="Features\ProgrammingTechnologies\Queries\GetByIdProgrammingTechnology\" />
+    <Folder Include="Features\ProgrammingTechnologies\Rules\" />
+    <Folder Include="Features\ProgrammingTechnologies\Constants\" />
     <Folder Include="Services\Repositories\" />
   </ItemGroup>
 

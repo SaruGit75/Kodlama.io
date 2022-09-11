@@ -1,5 +1,9 @@
+using Application;
+using Core.Security.Encryption;
+using Core.Security.JWT;
 using Kodlama.io.Devs.Application;
 using Kodlama.io.Devs.Persistence;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +16,25 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddApplicationServices();
 builder.Services.AddPersistenceServices(builder.Configuration);
+builder.Services.AddSecurityServices();
+
+var tokenOptionSection = builder.Configuration.GetSection("TokenOptions").Get<TokenOptions>();
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
+{
+    opt.TokenValidationParameters = new()
+    {
+        ValidateIssuer = true,
+        ValidateLifetime = true,
+        ValidateAudience = true,
+        ValidIssuer = tokenOptionSection.Issuer,
+        ValidAudience = tokenOptionSection.Audience,
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptionSection.SecurityKey)
+    };
+});
+
+
 
 var app = builder.Build();
 

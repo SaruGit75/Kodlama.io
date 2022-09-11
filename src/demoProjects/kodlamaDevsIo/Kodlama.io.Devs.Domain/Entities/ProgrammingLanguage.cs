@@ -14,6 +14,9 @@ namespace Kodlama.io.Devs.Domain.Entities
         public DateTime CreatedDate { get; set; }
         public DateTime ModifiedDate { get; set; }
 
+
+        public virtual ICollection<ProgrammingTechnology> ProgrammingTechnologies { get; set; }
+
         public ProgrammingLanguage()
         {
         }
