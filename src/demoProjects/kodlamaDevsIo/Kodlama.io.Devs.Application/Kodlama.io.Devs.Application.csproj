@@ -9,6 +9,7 @@
   <ItemGroup>
     <Folder Include="Features\Authentication\Commands\Register\" />
     <Folder Include="Features\Authentication\Commands\Login\" />
+    <Folder Include="Features\Authentication\Dtos\" />
     <Folder Include="Features\Authentication\Rules\" />
     <Folder Include="Features\Authentication\Profiles\" />
     <Folder Include="Features\GithubProfiles\Commands\HardDeleteGithubProfile\" />
@@ -33,6 +34,7 @@
     <Folder Include="Features\ProgrammingTechnologies\Queries\GetByIdProgrammingTechnology\" />
     <Folder Include="Features\ProgrammingTechnologies\Rules\" />
     <Folder Include="Features\ProgrammingTechnologies\Constants\" />
+    <Folder Include="Services\AuthService\" />
     <Folder Include="Services\Repositories\" />
   </ItemGroup>
 

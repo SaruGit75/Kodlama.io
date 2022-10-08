@@ -1,4 +1,5 @@
-﻿using Kodlama.io.Devs.Persistence.Contexts;
+﻿using Kodlama.io.Devs.Application.Services.AuthService;
+using Kodlama.io.Devs.Persistence.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,7 +14,10 @@ public static class AutoServiceRegistration
         services.AddDbContext<KodlamaIoContext>(options =>
             options.UseSqlServer(
                 configuration.GetConnectionString("ProgrammingLanguagesDbConnection")));
-        //assembly name'ler ile service registration yapılacak.
+        //TODO Service'ler içinde bir düzenleme yapılacak
+        services.AddScoped<IAuthService, AuthManager>();
+
+
 
         var allRepoInterfaces = AppDomain.CurrentDomain.GetAssemblies()
             .FirstOrDefault(t => t.FullName.Contains("Kodlama.io.Devs.Application"))?.GetTypes()

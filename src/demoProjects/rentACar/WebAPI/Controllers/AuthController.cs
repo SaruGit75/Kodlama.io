@@ -1,36 +1,28 @@
-﻿using Core.Security.Dtos;
+﻿using Application.Features.Auths.Commands.Register;
+using Application.Features.Auths.Dtos;
+using Core.Security.Dtos;
 using Core.Security.Entities;
-using Core.Security.JWT;
-using Kodlama.io.Devs.Application.Features.Authentication.Commands.Login;
-using Kodlama.io.Devs.Application.Features.Authentication.Commands.Register;
-using Kodlama.io.Devs.Application.Features.Authentication.Dtos;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Kodlama.io.Devs.WebAPI.Controllers
+namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AuthenticationController : BaseController
+    public class AuthController : BaseController
     {
-        [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] LoginCommand command)
-        {
-            AccessToken token = await Mediator.Send(command);
-            return Ok(token);
-        }
-
-
-        [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] UserForRegisterDto userForRegisterDto)
+        [HttpPost("Register")]
+        public async Task<IActionResult> Register([FromBody]UserForRegisterDto userForRegisterDto)
         {
             RegisterCommand registerCommand = new()
             {
                 UserForRegisterDto = userForRegisterDto,
                 IpAddress = _GetIpAddress()
             };
-            RegisteredDto result = await Mediator.Send(registerCommand);
-            _SetRefreshTokenToCookie(result.RefreshToken);
 
+            RegisteredDto result = await Mediator.Send(registerCommand);
+
+            _SetRefreshTokenToCookie(result.RefreshToken);
             return Created("", result.AccessToken);
         }
 
