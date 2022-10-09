@@ -7,8 +7,10 @@ using Core.Application.Pipelines.Validation;
 using Core.Security.JWT;
 using Kodlama.io.Devs.Application.Features.Authentication.Rules;
 using Kodlama.io.Devs.Application.Features.GithubProfiles.Rules;
+using Kodlama.io.Devs.Application.Features.OperationClaims.Rules;
 using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Rules;
 using Kodlama.io.Devs.Application.Features.ProgrammingTechnologies.Rules;
+using Kodlama.io.Devs.Application.Features.UserOperationClaims.Rules;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
@@ -25,6 +27,8 @@ public static class ApplicationServiceRegister
         services.AddScoped<ProgrammingTechnologyBusinessRules>();
         services.AddScoped<AuthenticationBusinessRules>();
         services.AddScoped<GithubProfileBusinessRules>();
+        services.AddScoped<OperationClaimsBusinessRules>();
+        services.AddScoped<UserOperationClaimBusinessRules>();
 
 
 

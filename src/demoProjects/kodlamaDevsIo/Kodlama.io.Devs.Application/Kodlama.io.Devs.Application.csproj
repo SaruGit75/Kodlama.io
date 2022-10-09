@@ -17,6 +17,12 @@
     <Folder Include="Features\GithubProfiles\Models\" />
     <Folder Include="Features\GithubProfiles\Queries\GetListGithubProfile\" />
     <Folder Include="Features\GithubProfiles\Queries\GetByIdGithubProfile\" />
+    <Folder Include="Features\OperationClaims\Commands\DeleteOperationClaim\" />
+    <Folder Include="Features\OperationClaims\Commands\UpdateOperationClaim\" />
+    <Folder Include="Features\OperationClaims\Models\" />
+    <Folder Include="Features\OperationClaims\Rules\" />
+    <Folder Include="Features\OperationClaims\Queries\" />
+    <Folder Include="Features\OperationClaims\Profiles\" />
     <Folder Include="Features\ProgrammingLanguages\Commands\HardDeleteProgrammingLanguage\" />
     <Folder Include="Features\ProgrammingLanguages\Commands\SoftDeleteProgrammingLanguage\" />
     <Folder Include="Features\ProgrammingLanguages\Commands\UpdateProgrammingLanguage\" />
@@ -34,6 +40,12 @@
     <Folder Include="Features\ProgrammingTechnologies\Queries\GetByIdProgrammingTechnology\" />
     <Folder Include="Features\ProgrammingTechnologies\Rules\" />
     <Folder Include="Features\ProgrammingTechnologies\Constants\" />
+    <Folder Include="Features\UserOperationClaims\Commands\UpdateUserOperationClaims\" />
+    <Folder Include="Features\UserOperationClaims\Commands\CreateUserOperationClaims\" />
+    <Folder Include="Features\UserOperationClaims\Queries\" />
+    <Folder Include="Features\UserOperationClaims\Dtos\" />
+    <Folder Include="Features\UserOperationClaims\Profiles\" />
+    <Folder Include="Features\UserOperationClaims\Rules\" />
     <Folder Include="Services\AuthService\" />
     <Folder Include="Services\Repositories\" />
   </ItemGroup>
